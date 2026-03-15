@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>2473037_Michael Liep Haryanto</title>
+</head>
+
+<body>
+
+    <table border="1" cellspacing="0" cellpadding="0" width="450" align="center" style="border-collapse: collapse;">
+        <tr>
+            <td>
+                <hr size="8" color="black" noshade style="margin:0; border:none;">
+
+                <table border="0" cellspacing="0" cellpadding="5" width="100%" bgcolor="#999999"
+                    style="border-bottom: 1px solid black;">
+                    <tr>
+                        <td align="center">
+                            <font color="white" size="4">Personal Data</font>
+                        </td>
+                    </tr>
+                </table>
+
+                <form action="proses.html" method="GET">
+                    <table border="0" cellspacing="0" cellpadding="8" width="100%">
+                        <tr>
+                            <td width="100"><b>Nama</b></td>
+                            <td><input type="text" name="nama" size="20"></td>
+                        </tr>
+                        <tr>
+                            <td><b>Alamat</b></td>
+                            <td><textarea name="alamat" cols="30" rows="4"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><b>Jenis Kelamin</b></td>
+                            <td>
+                                <input type="radio" id="laki" name="jk" value="laki-laki">
+                                <label for="laki">laki-laki</label><br>
+                                <input type="radio" id="perempuan" name="jk" value="perempuan">
+                                <label for="perempuan">perempuan</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>Tanggal Lahir</b></td>
+                            <td>
+                                <select name="tgl">
+                                    <option>1</option>
+                                </select> -
+                                <select name="bln">
+                                    <option>Januari</option>
+                                </select> -
+                                <select name="thn">
+                                    <option>1980</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>Jurusan</b></td>
+                            <td>
+                                <select name="jurusan" size="5" multiple>
+                                    <option>teknik informatika</option>
+                                    <option>sistem informasi</option>
+                                    <option>elektro</option>
+                                    <option>sipil</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <fieldset style="border: 1px solid gray;">
+                                    <legend><b>Hobi</b></legend>
+                                    <table border="0" width="100%">
+                                        <tr>
+                                            <td><input type="checkbox" id="h1"><label for="h1">Membaca</label></td>
+                                            <td><input type="checkbox" id="h4"><label for="h4">Voli</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" id="h2"><label for="h2">Menulis</label></td>
+                                            <td><input type="checkbox" id="h5"><label for="h5">Badminton</label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" id="h3"><label for="h3">Catur</label></td>
+                                            <td><input type="checkbox" id="h6"><label for="h6">Golf</label></td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <hr size="1" color="black" noshade>
+                                <div align="right">
+                                    <input type="submit" value="Submit">
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <hr size="8" color="black" noshade style="margin:0; border:none;">
+                </form>
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
