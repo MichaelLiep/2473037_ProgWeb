@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473037_Michael Liep Haryanto</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 620px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            height: 100px;
+        }
+
+        .logo {
+            width: 120px;
+            height: 100px;
+        }
+
+        .banner {
+            width: 340px;
+            height: 100px;
+            background: yellow;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            color: #000;
+        }
+
+        .header-img {
+            width: 160px;
+            height: 100px;
+        }
+
+        .header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .main-area {
+            display: flex;
+            align-items: stretch;
+        }
+
+        .sidebar {
+            width: 120px;
+            background: #4169E1 url('src/bg_sea.png') no-repeat;
+            background-size: cover;
+            padding: 10px;
+            flex-shrink: 0;
+            color: white;
+            text-align: center;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: underline;
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        .content {
+            width: 500px;
+            padding: 15px;
+            color: #4169E1;
+        }
+
+        .content h2 {
+            text-align: center;
+            margin-top: 0;
+            font-size: 24px;
+        }
+
+        .image-box {
+            float: right;
+            width: 200px;
+            margin-left: 15px;
+            margin-bottom: 10px;
+        }
+
+        .picture img {
+            width: 200px;
+            height: 150px;
+            display: block;
+            object-fit: cover;
+        }
+
+        .caption {
+            width: 200px;
+            background: #4169E1;
+            color: white;
+            font-size: 11px;
+            padding: 5px;
+        }
+
+        .content p {
+            font-size: 13px;
+            line-height: 1.4;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        .footer {
+            width: 100%;
+            background: #4169E1;
+            color: #000000;
+            font-weight: bold;
+            text-align: right;
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <div class="logo"><img src="src/logo_zoo.png"></div>
+            <div class="banner">Having trouble putting your little gorilla to bed</div>
+            <div class="header-img"><img src="src/lion.png"></div>
+        </div>
+
+        <div class="main-area">
+            <div class="sidebar">
+                <ul>
+                    <li><a href="#">Lions</a></li>
+                    <li><a href="#">Armadillos</a></li>
+                    <li><a href="#">Hyenas</a></li>
+                    <li><a href="#">Elephants</a></li>
+                    <li><a href="#">Giraffes</a></li>
+                    <li><a href="#">Gorillas</a></li>
+                </ul>
+            </div>
+
+            <div class="content">
+                <h2>The Truth About Elephants</h2>
+
+                <div class="image-box">
+                    <div class="picture"><img src="src/elephant.png"></div>
+                    <div class="caption">
+                        A baby elephant hang out with it's mom, aunts and great aunts, and maybe even it's grandmother
+                    </div>
+                </div>
+
+                <p>It's hard to tell what goes through a baby elephant's mind when its mom is trying to put it to sleep.
+                    Do you think baby elephants wake up in the middle of the night and cry? Do their moms and dads take
+                    turns getting up with them to rock them back to sleep? How do you rock an elephant, anyway?</p>
+
+                <p>And what about gorillas? Today in the paper there's a story about a new gorilla that was just born in
+                    Franklin Park. Its mom is holding on to it just like any proud human mom. And I have to wonder if
+                    they go through as much trauma as that human mom when it comes to sleep, and food, and diapers, and
+                    running into the street.</p>
+
+                <p>Why is it so easy for them? Are they better parents? Do they just not worry about every little
+                    detail? I've never known a gorilla to read and study carefully seventeen books on bringing up baby
+                    gorillas. And they seem to know just what to do. They never worry about spoiling their little
+                    gorilla babies. They never worry about not having enough time with them.</p>
+
+                <p>Now, don't get me wrong, I'd rather be human than a gorilla any day. Just imagine having to sit in a
+                    zoo. Forget discrete nursing... (Did you figure out yet that while gorillas were on my mind, I could
+                    only find a picture of the elephant?)</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            Copyright &copy; 2002 by Northampton Zoological Society, Inc.
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473037_Michael Liep Haryanto</title>
+
+    <style>
+        body {
+            background-color: #ddd;
+        }
+
+        .container {
+            position: relative;
+            width: 500px;
+            height: 250px;
+            margin: 100px auto;
+            padding: 20px;
+        }
+
+        img {
+            width: 150px;
+            position: absolute;
+            top: 20px;
+        }
+
+        .red-left {
+            left: 50px;
+            z-index: 1;
+        }
+
+        .purple {
+            left: 140px;
+            z-index: 2;
+        }
+
+        .red-right {
+            left: 230px;
+            z-index: 1;
+        }
+
+        .half-left {
+            left: 50px;
+            z-index: 3;
+        }
+
+        .half-right {
+            left: 230px;
+            z-index: 3;
+            transform: scaleX(-1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <img src="src/circle-red.png" class="red-left">
+        <img src="src/circle-purple.png" class="purple">
+        <img src="src/circle-red.png" class="red-right">
+
+        <img src="src/circle-red-half.png" class="half-left">
+        <img src="src/circle-red-half.png" class="half-right">
+    </div>
+
+</body>
+
+</html>
