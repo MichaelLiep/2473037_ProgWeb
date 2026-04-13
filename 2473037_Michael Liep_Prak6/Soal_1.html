@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473037_Michael Liep Haryanto</title>
+    <style>
+        .container {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: fit-content;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        table,
+        td {
+            border: 1px solid black;
+        }
+
+        td {
+            width: 50px;
+            height: 40px;
+            font-size: 24px;
+        }
+
+        input {
+            margin-bottom: 5px;
+            width: 70px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        Angka Pertama : <input type="text" id="angka1"><br>
+        Angka Kedua : <input type="text" id="angka2"><br>
+        <button onclick="hitung()">Count</button>
+
+        <table>
+            <tr>
+                <td id="res1_a"></td>
+                <td>+</td>
+                <td id="res1_b"></td>
+                <td>=</td>
+                <td id="hasil_tambah"></td>
+            </tr>
+            <tr>
+                <td id="res2_a"></td>
+                <td>-</td>
+                <td id="res2_b"></td>
+                <td>=</td>
+                <td id="hasil_kurang"></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function hitung() {
+            var x = document.getElementById("angka1").value;
+            var y = document.getElementById("angka2").value;
+
+            var cekX = isNaN(x) || x === "";
+            var cekY = isNaN(y) || y === "";
+
+            if (cekX && cekY) {
+                alert("angka pertama dan kedua harus angka.");
+                return;
+            } else if (cekX) {
+                alert("angka pertama bukan angka.");
+                return;
+            } else if (cekY) {
+                alert("angka kedua harus angka.");
+                return;
+            }
+
+            var a = parseInt(x);
+            var b = parseInt(y);
+
+            var tambah = a + b;
+            var kurang = a - b;
+
+            document.getElementById("res1_a").innerHTML = a;
+            document.getElementById("res2_a").innerHTML = a;
+            document.getElementById("res1_b").innerHTML = b;
+            document.getElementById("res2_b").innerHTML = b;
+
+            document.getElementById("hasil_tambah").innerHTML = tambah;
+            document.getElementById("hasil_kurang").innerHTML = kurang;
+        }
+    </script>
+
+</body>
+
+</html>

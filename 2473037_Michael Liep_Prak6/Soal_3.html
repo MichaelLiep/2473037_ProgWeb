@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473037_Michael Liep Haryanto</title>
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        .input-group {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: fit-content;
+            margin-bottom: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+
+        td {
+            border: 1px solid white;
+            width: 30px;
+            height: 30px;
+        }
+
+        .box {
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="input-group">
+        Tinggi Piramida: <input type="text" id="tinggiInput"> <br>
+        <button onclick="prosesPiramida()">proses</button>
+    </div>
+
+    <div id="containerPiramida"></div>
+
+    <script>
+        function prosesPiramida() {
+            var tinggi = document.getElementById("tinggiInput").value;
+
+            if (tinggi === "" || isNaN(tinggi) || tinggi <= 0) {
+                alert("Masukkan angka tinggi yang valid!");
+                return;
+            }
+
+            var n = parseInt(tinggi);
+            var maxKolom = (2 * n) - 1;
+
+            var html = "<table width='800' height='600'>";
+
+            for (var i = 1; i <= n; i++) {
+                html += "<tr>";
+
+                var jumlahKotak = (2 * i) - 1;
+                var spaceKosong = (maxKolom - jumlahKotak) / 2;
+
+                for (var j = 1; j <= maxKolom; j++) {
+                    if (j > spaceKosong && j <= (spaceKosong + jumlahKotak)) {
+                        html += "<td class='box'></td>";
+                    } else {
+                        html += "<td></td>";
+                    }
+                }
+
+                html += "</tr>";
+            }
+
+            html += "</table>";
+            document.getElementById("containerPiramida").innerHTML = html;
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473037_Michael Liep Haryanto</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 400px;
+            border: 2px solid #ccc;
+        }
+
+        td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .label-text {
+            color: blue;
+            font-weight: bold;
+            text-align: left;
+            width: 80px;
+        }
+
+        input,
+        select {
+            width: 95%;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            color: blue;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 5px 15px;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <table>
+        <tr>
+            <td class="label-text">Input :</td>
+            <td><input type="text" id="userInput"></td>
+        </tr>
+        <tr>
+            <td class="label-text">Output :</td>
+            <td><input type="text" id="userOutput" readonly></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <select id="mode">
+                    <option value="dec-bin">decimal-biner</option>
+                    <option value="bin-dec">biner-decimal</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button onclick="proses()">PROSES</button>
+                <button onclick="reset()">RESET</button>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        function proses() {
+            var input = document.getElementById("userInput").value.trim();
+            var mode = document.getElementById("mode").value;
+            var hasil = "";
+
+            if (mode === "dec-bin") {
+                var num = parseInt(input);
+                if (isNaN(num) || num < 0 || num > 255) {
+                    alert("Input decimal harus angka 0 - 255");
+                    return;
+                }
+
+                var biner = "";
+                var temp = num;
+                for (var i = 0; i < 8; i++) {
+                    biner = (temp % 2) + biner;
+                    temp = Math.floor(temp / 2);
+                }
+                hasil = biner;
+
+            } else {
+                if (input.length !== 8) {
+                    alert("Input biner harus 8 digit");
+                    return;
+                }
+
+                var desimal = 0;
+                var pangkat = 0;
+                for (var i = input.length - 1; i >= 0; i--) {
+                    var bit = input.charAt(i);
+                    if (bit !== '0' && bit !== '1') {
+                        alert("Input biner hanya boleh angka 0 atau 1");
+                        return;
+                    }
+                    if (bit === '1') {
+                        var nilaiPangkat = 1;
+                        for (var j = 0; j < pangkat; j++) {
+                            nilaiPangkat *= 2;
+                        }
+                        desimal += nilaiPangkat;
+                    }
+                    pangkat++;
+                }
+                hasil = desimal;
+            }
+
+            document.getElementById("userOutput").value = hasil;
+        }
+
+        function reset() {
+            document.getElementById("userInput").value = "";
+            document.getElementById("userOutput").value = "";
+            document.getElementById("mode").selectedIndex = 0;
+        }
+    </script>
+
+</body>
+
+</html>

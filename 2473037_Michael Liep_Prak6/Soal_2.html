@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473037_Michael Liep Haryanto</title>
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        table,
+        td {
+            border: 1px solid black;
+        }
+
+        td {
+            width: 40px;
+            height: 35px;
+            font-size: 20px;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="hasilTabel"></div>
+
+    <script>
+        var inputUser;
+        var valid = false;
+
+        while (!valid) {
+            inputUser = prompt("A number?");
+
+            if (inputUser !== null && inputUser.trim() !== "" && !isNaN(inputUser)) {
+                valid = true;
+            }
+        }
+
+        var n = parseInt(inputUser);
+        var isiTabel = "<table>";
+
+        for (var i = 1; i <= n; i++) {
+            isiTabel += "<tr>";
+            isiTabel += "<td>" + i + "</td>";
+            isiTabel += "<td>x</td>";
+            isiTabel += "<td>" + n + "</td>";
+            isiTabel += "<td>=</td>";
+            isiTabel += "<td>" + (i * n) + "</td>";
+            isiTabel += "</tr>";
+        }
+
+        isiTabel += "</table>";
+        document.getElementById("hasilTabel").innerHTML = isiTabel;
+    </script>
+
+</body>
+
+</html>
