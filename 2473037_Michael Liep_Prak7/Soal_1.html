@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473037_Michael Liep Haryanto</title>
+    <style>
+        .container {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: fit-content;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        table tr td {
+            vertical-align: top;
+            padding: 2px;
+        }
+
+        .counter-container {
+            text-align: right;
+            margin-top: 2px;
+        }
+
+        #txt2 {
+            text-align: right;
+            width: 60px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <table>
+            <tr>
+                <td>Judul</td>
+                <td>:</td>
+                <td><input type="text" style="width: 250px;"></td>
+            </tr>
+            <tr>
+                <td>Deskripsi</td>
+                <td>:</td>
+                <td>
+                    <textarea id="deskripsi" rows="5" style="width: 250px;" onkeyup="call_onKeyPress(this)"
+                        onkeydown="call_onKeyPress(this)"></textarea>
+
+                    <div class="counter-container">
+                        <input type="text" id="txt2" value="0/256" readonly>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function call_onKeyPress(ob) {
+            let obval = ob.value;
+
+            if (obval.length > 256) {
+                ob.value = obval.substr(0, 256);
+                obval = ob.value;
+            }
+
+            document.getElementById("txt2").value = obval.length + "/256";
+        }
+    </script>
+
+</body>
+
+</html>

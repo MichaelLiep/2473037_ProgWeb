@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473037_Michael Liep Haryanto</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: #A9B8A3;
+            padding: 8px;
+            border: 1px solid #fff;
+            text-align: left;
+        }
+
+        td {
+            padding: 8px;
+            border: 1px solid #fff;
+        }
+
+        .c_blue {
+            background-color: #A9CAFF;
+        }
+
+        .c_orange {
+            background-color: #FFCCAA;
+        }
+
+        .c3 {
+            background-color: #CCFFAA;
+        }
+    </style>
+</head>
+
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Position</th>
+                <th>Programming Language</th>
+                <th>Ratings</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="c_blue" onmouseover="changeColor(this, 'c3')" onmouseout="changeColor(this, 'c_blue')">
+                <td>1</td>
+                <td>C</td>
+                <td>18.058%</td>
+            </tr>
+            <tr class="c_orange" onmouseover="changeColor(this, 'c3')" onmouseout="changeColor(this, 'c_orange')">
+                <td>2</td>
+                <td>Java</td>
+                <td>18.051%</td>
+            </tr>
+            <tr class="c_blue" onmouseover="changeColor(this, 'c3')" onmouseout="changeColor(this, 'c_blue')">
+                <td>3</td>
+                <td>C++</td>
+                <td>9.707%</td>
+            </tr>
+            <tr class="c_orange" onmouseover="changeColor(this, 'c3')" onmouseout="changeColor(this, 'c_orange')">
+                <td>4</td>
+                <td>PHP</td>
+                <td>9.662%</td>
+            </tr>
+            <tr class="c_blue" onmouseover="changeColor(this, 'c3')" onmouseout="changeColor(this, 'c_blue')">
+                <td>5</td>
+                <td>(Visual) Basic</td>
+                <td>6.392%</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function changeColor(ob, className) {
+            ob.className = className;
+        }
+    </script>
+
+</body>
+
+</html>

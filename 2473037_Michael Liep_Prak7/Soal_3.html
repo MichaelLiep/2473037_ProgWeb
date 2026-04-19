@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473037_Michael Liep Haryanto</title>
+    <style>
+        .container {
+            border: 1px solid #000;
+            padding: 10px;
+            width: fit-content;
+        }
+
+        table tr td {
+            padding: 5px;
+            font-size: 24px;
+        }
+
+        input[type="text"] {
+            width: 200px;
+        }
+
+        select {
+            width: 150px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <table>
+            <tr>
+                <td>Data</td>
+                <td><input type="text" id="inputData"></td>
+            </tr>
+            <tr>
+                <td><button onclick="addData()">Add</button></td>
+                <td>
+                    <select id="operasi" onchange="eksekusiOperasi()">
+                        <option value="">Pilih Operasi</option>
+                        <option value="display">Display</option>
+                        <option value="count">Count</option>
+                        <option value="sum">Sum</option>
+                        <option value="average">Average</option>
+                        <option value="max">Max</option>
+                        <option value="min">Min</option>
+                        <option value="ganjil">Ganjil</option>
+                        <option value="genap">Genap</option>
+                        <option value="hapus">Hapus</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Hasil</td>
+                <td><input type="text" id="hasil" readonly></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        let listData = [];
+
+        function addData() {
+            let input = document.getElementById("inputData");
+            let value = parseFloat(input.value);
+
+            if (!isNaN(value)) {
+                listData.push(value);
+                input.value = "";
+                input.focus();
+            }
+        }
+
+        function eksekusiOperasi() {
+            let op = document.getElementById("operasi").value;
+            let output = document.getElementById("hasil");
+            let res = "";
+
+            if (listData.length === 0 && op !== "hapus" && op !== "") {
+                output.value = "Data Kosong";
+                return;
+            }
+
+            if (op === "display") {
+                res = listData.join(", ");
+            } else if (op === "count") {
+                res = listData.length;
+            } else if (op === "sum") {
+                res = listData.reduce((a, b) => a + b, 0);
+            } else if (op === "average") {
+                let total = listData.reduce((a, b) => a + b, 0);
+                res = total / listData.length;
+            } else if (op === "max") {
+                res = Math.max(...listData);
+            } else if (op === "min") {
+                res = Math.min(...listData);
+            } else if (op === "ganjil") {
+                res = listData.filter(n => n % 2 !== 0).join(", ");
+            } else if (op === "genap") {
+                res = listData.filter(n => n % 2 === 0).join(", ");
+            } else if (op === "hapus") {
+                listData = [];
+                res = "";
+            }
+
+            output.value = res;
+            document.getElementById("operasi").selectedIndex = 0;
+        }
+    </script>
+
+</body>
+
+</html>
