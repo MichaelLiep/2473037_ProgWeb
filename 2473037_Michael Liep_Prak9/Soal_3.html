@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473037_Michael Liep Haryanto</title>
+    <style>
+        .box-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            margin-top: 10px;
+        }
+
+        div.box {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            border: 2px blue solid;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        button {
+            display: block;
+            margin-bottom: 10px;
+            padding: 5px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="btnChange">Change colors</button>
+
+    <div class="box-container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
+    <script src="jquery-4.0.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btnChange").click(function () {
+                $(".box").each(function (index, domEle) {
+                    if ($(domEle).attr('id') == "kotakMerah") {
+                        return false;
+                    }
+                    $(domEle).css("background-color", "yellow");
+                });
+            });
+
+            $(".box").click(function () {
+                $(".box").css("background-color", "white").attr("id", "");
+                $(this).css("background-color", "red");
+                $(this).attr("id", "kotakMerah");
+            });
+        });
+    </script>
+
+</body>
+
+</html>

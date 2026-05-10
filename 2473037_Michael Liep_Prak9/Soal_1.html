@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473037_Michael Liep Haryanto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        ol {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .main-menu>li {
+            float: left;
+            position: relative;
+            background-color: #ff69b4;
+            color: white;
+            padding: 10px 15px;
+            width: 150px;
+            text-align: left;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: underline;
+            border: 1px solid white;
+            box-sizing: border-box;
+        }
+
+        .sub-menu {
+            display: none;
+            position: absolute;
+            left: -1px;
+            top: 100%;
+            background-color: white;
+            width: 150px;
+            z-index: 999;
+            border: 2px solid #ff69b4;
+            box-sizing: border-box;
+            padding: 0;
+        }
+
+        .sub-menu li {
+            padding: 0 15px;
+            margin: 0;
+            line-height: 1.1;
+            color: black;
+            text-decoration: underline;
+            font-weight: normal;
+            text-align: left;
+        }
+
+        .sub-menu li:hover {
+            background-color: #fff0f5;
+        }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
+</head>
+
+<body>
+    <ol class="main-menu clearfix">
+        <li>
+            jQuery
+            <ol class="sub-menu">
+                <li>Download</li>
+                <li>Documentation</li>
+                <li>Blog</li>
+            </ol>
+        </li>
+        <li>
+            Community
+            <ol class="sub-menu">
+                <li>Mailing list</li>
+                <li>Tutorials</li>
+                <li>Demos</li>
+                <li>Plugins</li>
+            </ol>
+        </li>
+        <li>
+            Development
+            <ol class="sub-menu">
+                <li>Source Code</li>
+                <li>Bug Tracking</li>
+                <li>Recent Changes</li>
+            </ol>
+        </li>
+    </ol>
+    <script src="jquery-4.0.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.main-menu > li').hover(
+                function () {
+                    $(this).find('.sub-menu').stop(true, true).show();
+                },
+                function () {
+                    $(this).find('.sub-menu').stop(true, true).hide();
+                }
+            );
+        });
+    </script>
+</body>
+
+</html>

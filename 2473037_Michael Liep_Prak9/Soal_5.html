@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473037_Michael Liep Haryanto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .container {
+            border: 1px solid #ccc;
+            padding: 15px;
+            width: 300px;
+            background-color: #f9f9f9;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #aaa;
+        }
+
+        .list-item {
+            display: block;
+            padding: 2px 0;
+            color: #000;
+            font-size: 14px;
+        }
+
+        .highlight {
+            color: red !important;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input type="text" id="findInput">
+        <div id="companyList">
+            <span class="list-item">Sun Microsystem</span>
+            <span class="list-item">Apache Software Foundation</span>
+            <span class="list-item">Oracle Coorporation</span>
+            <span class="list-item">International Bussiness Machines</span>
+            <span class="list-item">Microsoft Coorporation</span>
+            <span class="list-item">Apple Inc</span>
+            <span class="list-item">Sap Ag</span>
+            <span class="list-item">Accenture</span>
+            <span class="list-item">Computer Sciences Coorporation</span>
+            <span class="list-item">Google</span>
+            <span class="list-item">Softbank</span>
+            <span class="list-item">Yahoo</span>
+        </div>
+    </div>
+    <script src="jquery-4.0.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#findInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+
+                $(".list-item").removeClass("highlight");
+
+                if (value !== "") {
+                    $(".list-item").each(function () {
+                        if ($(this).text().toLowerCase().indexOf(value) > -1) {
+                            $(this).addClass("highlight");
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
