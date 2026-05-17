@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473037_Michael Liep Haryanto</title>
+    <script src="jquery.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #ffffff;
+        }
+
+        h3 {
+            font-weight: bold;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .filter-box {
+            border: 1px solid #000000;
+            padding: 10px 15px;
+            width: 250px;
+            margin-bottom: 25px;
+        }
+
+        .radio-group {
+            margin-bottom: 5px;
+        }
+
+        .radio-group label {
+            margin-left: 5px;
+            cursor: pointer;
+        }
+
+        button {
+            margin-top: 5px;
+            padding: 2px 12px;
+            cursor: pointer;
+        }
+
+        table {
+            border-collapse: collapse;
+            font-size: 16px;
+        }
+
+        th {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 6px 12px;
+            font-weight: bold;
+            border: 1px solid #000000;
+            text-align: left;
+        }
+
+        td {
+            padding: 6px 12px;
+            border: 1px solid #000000;
+            color: #000000;
+        }
+
+        .bg-kelas-a {
+            background-color: #FFFFCC;
+        }
+
+        .bg-kelas-b {
+            background-color: #CCFFAA;
+        }
+
+        .stripes {
+            filter: brightness(0.95);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3>Selamat! Berikut adalah Daftar Mahasiswa yang mendapat<br>Nilai A Pemrograman Web SI Tahun Ajaran 2023/2024</h3>
+
+    <div class="filter-box">
+        <div class="radio-group">
+            <input type="radio" id="all" name="kelas" value="all" checked>
+            <label for="all">All</label>
+        </div>
+        <div class="radio-group">
+            <input type="radio" id="kelasA" name="kelas" value="A">
+            <label for="kelasA">Kelas A</label>
+        </div>
+        <div class="radio-group">
+            <input type="radio" id="kelasB" name="kelas" value="B">
+            <label for="kelasB">Kelas B</label>
+        </div>
+        <button id="btnSearch">Search</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>NRP</th>
+                <th>NAMA</th>
+                <th>KELAS</th>
+                <th>NILAI AKHIR</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+
+    <script>
+        $(document).ready(function () {
+            function aksiPencarian() {
+                var pilihanKelas = $(":radio[name='kelas']:checked").val();
+                var namaFile = "";
+
+                if (pilihanKelas === "all") {
+                    namaFile = "nilai.js";
+                } else if (pilihanKelas === "A") {
+                    namaFile = "nilaiA.js";
+                } else if (pilihanKelas === "B") {
+                    namaFile = "nilaiB.js";
+                }
+
+                $.getJSON(namaFile, function (data) {
+                    var elemenBaris = "";
+                    $("#tableBody").empty();
+
+                    $.each(data.nilai, function (index, mhs) {
+                        var kelasWarna = "";
+                        if (mhs.kelas === "A" || mhs.kelas === "a") {
+                            kelasWarna = "bg-kelas-a";
+                        } else if (mhs.kelas === "B" || mhs.kelas === "b") {
+                            kelasWarna = "bg-kelas-b";
+                        }
+
+                        elemenBaris += "<tr class='" + kelasWarna + "'>" +
+                            "<td>" + mhs.nrp + "</td>" +
+                            "<td>" + mhs.nama + "</td>" +
+                            "<td>" + mhs.kelas + "</td>" +
+                            "<td>" + mhs.nilaiakhir + "</td>" +
+                            "</tr>";
+                    });
+
+                    $("#tableBody").html(elemenBaris);
+                    $("#tableBody tr:odd").addClass("stripes");
+                })
+                    .fail(function () {
+                        $("#tableBody").html("<tr><td colspan='4' style='text-align:center; color:red;'>Gagal memuat file data.</td></tr>");
+                    });
+            }
+
+            $("#btnSearch").click(function () {
+                aksiPencarian();
+            });
+
+            aksiPencarian();
+        });
+    </script>
+</body>
+
+</html>
